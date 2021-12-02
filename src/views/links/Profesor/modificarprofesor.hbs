@@ -1,0 +1,81 @@
+
+<div class="mx-auto">
+<div class="col text-center">
+    MODIFICAR PROFESOR
+</div>
+<br>
+<div class="mx-auto py-xl-8">
+    {{#each usuarios}}
+<form action="/modificarprofesor/{{id_profe}}" method="POST">
+                       <div class="row py-sm-2 ">
+                            <div class="col-2 text-right">Usuario:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" name="profename" placeholder="{{profename}}" class="form-control" autofocus>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <div class="py-sm-2 row">
+                            <div class="col-2 text-right">Password:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                            <input type="password" name="passwordp" placeholder="" class="form-control">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row py-sm-2 ">
+                            <div class="col-2 text-right">Nombre:</div>
+                            <div class="col-9">
+                            <div class="form-group"> 
+                                <input type="text" name="nombrep" placeholder="{{nombrep}}" class="form-control" autofocus>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="py-sm-2 row">
+                            <div class="col-2 text-right">Apellido materno:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" name="apmp" placeholder="{{apmp}}" class="form-control" autofocus>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="py-sm-2 row">
+                            <div class="col-2 text-right">Apellido paterno:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                            <input type="text" name="appp" placeholder="{{appp}}" class="form-control" autofocus>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="py-sm-2 row">
+                            <div class="col-2 text-right"> Email:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                            <input type="email" name="emailp" class="form-control" id="Email1" placeholder="{{emailp}}">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="py-sm-2 row ">
+                            <div class="col-2 text-right"> Fecha:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                                <input type="date" name="fechadenacimientop" id="start" name="date"
+                                value="{{fechadenacimientop}}"
+                                min="1980-01-01" max="2021-12-11" min-with="100%">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-3 text-center">
+                                <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Guardar
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                    {{/each}}
+</div>
+</div>

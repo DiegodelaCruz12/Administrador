@@ -1,0 +1,37 @@
+<div class="container">
+            <div class="row justify-content-md-center py-sm-2 w=90 border-bottom ">                
+                <div class="col-md-auto justify-content-center" id="centrados">
+                   
+                   <a href="/agregarusuario" class="" >
+                   <div class="card text-white bg-success mb-3" id="btnagregarusuario" >
+                        <div class="card-body">
+
+                    AGREGAR USUARIO   
+                        </div>
+                    </div>
+                    </a>                                              
+                    </div>
+                </div>
+                
+            <div class="row py-sm-2  border-bottom " style="min-width: 500px;">
+                <div class="col-2 text-center overflow-auto" >Id_usuarios</div>
+                <div class="col-4 text-center overflow-auto" overflow="auto">Usuario</div>
+                <div class="col-4 text-center overflow-auto" overflow="auto">Correo</div>
+                <div class="col-2 text-center overflow-auto" overflow="auto">Actions</div>
+            </div>
+               {{#each usuarios}}
+                                            <div class="row  row py-sm-2 w=90 border-bottom ">
+                                                <div class="col-2 text-center overflow-auto" > {{id_usuario}} </div>
+                                                <div class="col-4 text-center overflow-auto" overflow="auto">{{usuario}}</div>
+                                                <div class="col-4 text-center overflow-auto" overflow="auto">{{email}}</div>
+                                                <div class="col-1 justify-content-center" overflow="auto">
+                                                    <a href="/editarusuario/{{id_usuario}}" class="justify-content-center"> <i class="fas fa-edit justify-content-center"></i></a>  
+                                                </div>
+                                                <div class="col-1 justify-content-center" overflow="auto">
+                                                       <a href="/eliminarusuario/{{id_usuario}}" class="justify-content-center">
+                                                       <i class="fas fa-trash-alt justify-content-center"></i>
+                                                       </a>       
+                                                </div>
+                                                </div>
+                                                {{/each}}
+                                        </div>

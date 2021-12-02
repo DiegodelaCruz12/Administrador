@@ -1,0 +1,79 @@
+
+<div class="mx-auto">
+<div class="col text-center">
+    AGREGAR USUARIO
+</div>
+<br>
+<div class="mx-auto py-xl-8">
+<form action="/agregarusuario" method="POST">
+                       <div class="row py-sm-2 ">
+                            <div class="col-2 text-right">Usuario:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" name="usuario" placeholder="Usuario" class="form-control" autofocus>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <div class="py-sm-2 row">
+                            <div class="col-2 text-right">Password:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                            <input type="password" name="contraseña" placeholder="Password" class="form-control">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row py-sm-2 ">
+                            <div class="col-2 text-right">Nombre:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" name="nombre" placeholder="Nombre" class="form-control" autofocus>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="py-sm-2 row">
+                            <div class="col-2 text-right">Apellido materno:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" name="apm" placeholder="Apellido materno" class="form-control" autofocus>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="py-sm-2 row">
+                            <div class="col-2 text-right">Apellido paterno:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                            <input type="text" name="app" placeholder="Apellido paterno" class="form-control" autofocus>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="py-sm-2 row">
+                            <div class="col-2 text-right"> Email:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                            <input type="email" name="email" class="form-control" id="Email1" placeholder="Email">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="py-sm-2 row ">
+                            <div class="col-2 text-right"> Fecha:</div>
+                            <div class="col-9">
+                            <div class="form-group">
+                                <input type="date" name="fechadenacimiento" id="start" name="date"
+                                value="2018-07-22"
+                                min="1980-01-01" max="2021-12-11" min-with="100%">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-3 text-center">
+                                <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Guardar
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+</div>
+</div>

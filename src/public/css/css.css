@@ -1,16 +1,22 @@
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
 body {
     font-family: 'Poppins', sans-serif;
     background: #ffffff;
     padding: 20px;
-    min-width: 500px;
+    min-width: 800px;
 }
 #centrados{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 #btnagregarusuario{
     max-width: 200px;

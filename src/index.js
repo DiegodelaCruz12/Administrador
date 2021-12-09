@@ -2,6 +2,7 @@ const express= require('express');
 const morgan=require('morgan');
 const exphbs=require('express-handlebars');
 const path=require('path');
+const cors=require('cors');
 
 //initializations
 const app=express();
@@ -20,6 +21,7 @@ app.use(morgan('dev'));
 app.set('view engine','.hbs');
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
+app.use(cors());
 
 //Global Variables
 const user="hola";
@@ -28,6 +30,7 @@ const user="hola";
 //Routes
 app.use(require('./routes/index'));
 app.use(require('./routes/links'));
+app.use(require('./routes/rutas'));
 
 
 //Public

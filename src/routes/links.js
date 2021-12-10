@@ -230,6 +230,27 @@ router.post('/signin', async(req, res)=>{
 
 })
 
+router.post('/calificaciones', async(req, res)=>{
+
+    let id = req.body.id
+
+    console.log('id: '+id);
+    const row = await pool.query(`SELECT escenariosusuarios.calificacion, escenariosprofesores.tipo  
+                            FROM escenariosprofesores escenariosprofesores
+                            INNER JOIN escenariosusuarios on escenariosprofesores.id_escenario = escenariosusuarios.id_escenario where id_usuario = ${id}`);
+    console.log('La consulta fue: ');
+
+    var nota = row.map(function(note) {
+    console.log('Nuevo: '+ JSON.parse(JSON.stringify(note)) );
+     return JSON.parse(JSON.stringify(note))
+    
+    });
+    console.log(nota);
+
+    res.status(200).json(nota);
+
+})
+
 router.post('/signinp', async(req, res)=>{
 
     const { usernamep, passwordp } = req.body;

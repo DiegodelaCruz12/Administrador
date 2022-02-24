@@ -70,9 +70,7 @@ router.post('/agregarprofesor',async(req,res)=>{
     })
 
 
-    valor1=1
-    const usuarios=await pool.query('SELECT * FROM profesores WHERE valor=?',[valor1]);
-    res.render('links/Profesor/gestionprofesor',{usuarios}); 
+    res.redirect('/gestionprofesor') 
 };
 });
 //gestion profesores
@@ -87,11 +85,8 @@ router.get('/eliminarprofesor/:id_profe',async(req,res)=>{
     id_profe=req.params.id_profe
     console.log(id_profe)
     await pool.query('DELETE FROM profesores WHERE id_profe=?',[id_profe]);
-    valor1=1
-    const usuarios=await pool.query('SELECT * FROM profesores WHERE valor=?',[valor1]);
-    res.render('links/Profesor/gestionprofesor',{usuarios}); 
+    res.redirect('/gestionprofesor') 
 })
-
 //Metodo editar profesor
 router.get('/editarprofesor/:id_profe',async(req,res)=>{
     id_profe=req.params.id_profe;
@@ -118,9 +113,7 @@ router.post('/modificarprofesor/:id_profe',async(req,res)=>{
     id_profe=req.params.id_profe;
     await pool.query('UPDATE profesores set ? WHERE id_profe=?',[newUser,id_profe])
     console.log(newUser.emailp)
-    valor1=1
-    const usuarios=await pool.query('SELECT * FROM profesores WHERE valor=?',[valor1]);
-    res.render('links/Profesor/gestionprofesor',{usuarios});
+    res.redirect('/gestionprofesor') 
 })
 
 

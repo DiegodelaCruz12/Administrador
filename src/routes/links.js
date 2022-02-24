@@ -192,9 +192,7 @@ router.post('/agregarusuario',async(req,res)=>{
         }
     })
     }
-    valor2=2
-    const usuarios=await pool.query('SELECT * FROM usuarios WHERE valor=?',[valor2]);
-    res.render('links/Usuario/gestionusuarios',{usuarios});
+    res.redirect('/gestionusuarios')
 });
 //Metodo gestionusuario
 router.get('/gestionusuarios',async(req,res)=>{
@@ -228,9 +226,8 @@ router.post('/modificarusuario/:id_usuario',async(req,res)=>{
     newUser.contraseña=await helpers.encryptPassword(contraseña);
     await pool.query('UPDATE usuarios set ? WHERE id_usuario=?',[newUser,id_usuario])
 
-    valor2=2
-    const usuarios=await pool.query('SELECT * FROM usuarios WHERE valor=?',[valor2]);
-    res.render('links/Usuario/gestionusuarios',{usuarios});
+    
+    res.redirect('/gestionusuarios')
 
 })
 //Metodo eliminar usuario por id
@@ -239,8 +236,7 @@ router.get('/eliminarusuario/:id_usuario',async(req,res)=>{
     id_usuario=req.params.id_usuario
     console.log(id_usuario)
     await pool.query('DELETE FROM usuarios WHERE id_usuario=?',[id_usuario]);
-    valor2=2
-    const usuarios=await pool.query('SELECT * FROM usuarios WHERE valor=?',[valor2]);
-    res.render('links/Usuario/gestionusuarios',{usuarios});
+    
+    res.redirect('/gestionusuarios')
 })
 module.exports=router;

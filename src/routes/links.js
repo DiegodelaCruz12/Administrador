@@ -122,7 +122,9 @@ router.post('/modificarprofesor/:id_profe',async(req,res)=>{
     const usuarios=await pool.query('SELECT * FROM profesores WHERE valor=?',[valor1]);
     res.render('links/Profesor/gestionprofesor',{usuarios});
 })
+router.get('/gestiocuestionarios',async(req,res)=>{
 
+})
 
 
 

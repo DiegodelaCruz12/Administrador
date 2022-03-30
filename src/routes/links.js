@@ -36,10 +36,21 @@ router.post('/agregarprofesor',async(req,res)=>{
     
     try{
     if(rows[0].profename==profename){
-        console.log("error1")  
+        console.log("error1") 
+        res.redirect('/gestionprofesor')  
+        /*Como es que hace el programa para detectar que es un usuario repetido o no facil
+        En esta parte ROWS se llenara de todos los usuarios que se repitan
+        pero cuando se agrega un usuario nuevo que no tenga la base de datos, automaticamente
+        salta el error porque no puede leer el valor de indefinido y salta este mismo error
+        "TypeError: Cannot read property 'profename' of undefine"
+        por lo que basicamente este if es utilizado simplemente para comprobar si
+        si existen o no usuarios/profesores identicos
+        */
+
      }
 }catch(error){
-    console.log("hola")
+    
+    console.log(error+ "    encontron un error ni idea de que sea ")
     
     await pool.query('INSERT INTO profesores SET ?',[newUser]);   
     var transporter=nodemailer.createTransport({
@@ -161,11 +172,19 @@ router.post('/agregarusuario',async(req,res)=>{
     try{
     if(rows[0].usuario==usuario){
         console.log("error1")
-        
+        res.redirect('/gestionusuarios')
      }else{
         
     }
 }catch(error){
+    /*Como es que hace el programa para detectar que es un usuario repetido o no facil
+        En esta parte ROWS se llenara de todos los usuarios que se repitan
+        pero cuando se agrega un usuario nuevo que no tenga la base de datos, automaticamente
+        salta el error porque no puede leer el valor de indefinido y salta este mismo error
+        "TypeError: Cannot read property 'profename' of undefine"
+        por lo que basicamente este if es utilizado simplemente para comprobar si
+        si existen o no usuarios/profesores identicos
+        */
     await pool.query('INSERT INTO usuarios SET ?',[newUser]);   
     var transporter=nodemailer.createTransport({
         host:"smtp.gmail.com",

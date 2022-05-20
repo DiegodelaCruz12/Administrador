@@ -25,7 +25,7 @@ const expresiones={
     email:/^[a-zA-Z0-9\-._]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     contraseña: /[A-Za-z0-9\-_?"][A-Za-z0-9\-_"]{4,100}$/,
     apm: /[A-Za-z"][A-Za-z"]{4,20}$/,
-    nombre: /[A-Za-z"][A-Za-z"]{4,16}$/,
+    nombre: /[A-Za-z"][A-Za-z"]{3,16}$/,
       //texto:/^[a-zA-Z0-9\_\-]{4,16}$/
 }
 const campos = {
@@ -183,7 +183,6 @@ router.get('/gestionprofesor',async(req,res)=>{
     
     valor1=1
     const usuarios=await pool.query('SELECT * FROM profesores WHERE valor=?',[valor1]);
-    console.log(usuarios)
     res.render('links/Profesor/gestionprofesor',{usuarios}); 
 });
 //Metodo eliminar profesor
@@ -216,6 +215,7 @@ router.post('/modificarprofesor/:id_profe',async(req,res)=>{
         emailp,
         valor
     };
+    console.log(profename)
     validarFormulario(profename,valordato="usuario");
     validarFormulario(nombrep,valordato="nombre")
     validarFormulario(apmp, valordato="apellido_materno");
@@ -349,7 +349,7 @@ router.get('/editarusuario/:id_usuario',async(req,res)=>{
 //Metodo modificar usuario
 router.post('/modificarusuario/:id_usuario',async(req,res)=>{
     valor=2
-    const{id}=req.params;
+    const id_usuario=req.params.id_usuario;
     const{usuario,contraseña,nombre,apm,app,fechadenacimiento,email}=req.body;
     const newUser={
         usuario,
@@ -361,6 +361,8 @@ router.post('/modificarusuario/:id_usuario',async(req,res)=>{
         email,
         valor
     };
+    
+    console.log(usuario)
     validarFormulario(usuario,valordato="usuario");
     validarFormulario(nombre,valordato="nombre")
     validarFormulario(apm, valordato="apellido_materno");
@@ -368,14 +370,16 @@ router.post('/modificarusuario/:id_usuario',async(req,res)=>{
     validarFormulario(app,valordato="apellido_paterno")
     validarFormulario(email,valordato="Email1")
     if(campos.usuario && campos.nombre && campos.apellido_materno && campos.apellido_paterno && campos.email){
-    }else{
         newUser.contraseña=await helpers.encryptPassword(contraseña);
+        console.log("entra al paametro")
         await pool.query('UPDATE usuarios set ? WHERE id_usuario=?',[newUser,id_usuario])
     
         
         res.redirect('/gestionusuarios')
+    }else{
+        res.redirect('/gestionusuarios')
     }
-    res.redirect('/gestionusuarios')
+
 
 })
 //Metodo eliminar usuario por id

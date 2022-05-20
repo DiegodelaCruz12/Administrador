@@ -44,3 +44,24 @@ a, a:hover, a:focus {
     min-width: 1000px;
 }
 
+.correcto:focus{
+	color: rgb(72, 255, 0);
+    box-shadow:  0 0px 0px rgba(0, 0, 0, 0), 0 0 10px rgb(30, 255, 0,0.288);
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.correcto{
+    color: rgb(72, 255, 0);
+    box-shadow:  0 0px 0px rgba(0, 0, 0, 0), 0 0 10px rgb(30, 255, 0,0.288);
+    border: 3px solid rgb(0, 0, 0);
+}
+.incorrecto:focus{
+	color: rgb(255, 0, 0);
+    box-shadow:  0 0px 0px rgba(0, 0, 0, 0), 0 0 10px rgba(255, 0, 0, 0.288);
+    border: 3px solid rgb(0, 0, 0);
+}
+.incorrecto{
+    color: rgb(255, 0, 0);
+    box-shadow:  0 0px 0px rgba(0, 0, 0, 0), 0 0 10px rgba(255, 0, 0, 0.288);
+    border: 3px solid rgb(0, 0, 0);
+}

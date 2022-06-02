@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 //initializations
 const app=express();
  //settings
- app.set('port', process.env.PORT||4090);
+ app.set('port', process.env.PORT||4080);
  app.set('views',path.join(__dirname, 'views' ));
  app.engine('.hbs', exphbs({
      defaultLayout:'main',

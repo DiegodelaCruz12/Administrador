@@ -21,12 +21,11 @@ let info={
         }
     }
 const expresiones={
-    usuario: /[A-Za-z0-9\-_"][A-Za-z0-9\-_"]{4,16}$/,
+    usuario: /^[a-zA-Z0-9\_\-]{4,20}$/,
     email:/^[a-zA-Z0-9\-._]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    contraseña: /[A-Za-z0-9\-_?"][A-Za-z0-9\-_"]{4,100}$/,
-    apm: /[A-Za-z"][A-Za-z"]{4,20}$/,
-    nombre: /[A-Za-z"][A-Za-z"]{3,16}$/,
-      //texto:/^[a-zA-Z0-9\_\-]{4,16}$/
+    contraseña: /^.{4,20}$/,
+    apm: /^[a-zA-Z0-9\_\-]{4,20}$/,
+    nombre: /^[a-zA-Z0-9\_\-]{4,20}$/,
 }
 const campos = {
 	usuario: false,
@@ -80,7 +79,7 @@ const Validar=(expresiones, dato, valor)=>{
 
       }
     }
-    function validateForm(){
+function validateForm(){
         if(campos.usuario && campos.nombre && campos.apellido_materno && campos.apellido_paterno && campos.email){
             console.log("error")
             return true;
